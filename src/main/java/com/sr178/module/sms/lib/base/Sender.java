@@ -158,6 +158,7 @@ public class Sender implements ISender {
 	 * @param data
 	 * @return HttpEntity
 	 * */
+	@SuppressWarnings("deprecation")
 	protected HttpEntity build(Map<String, Object> data) {
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 		builder.addTextBody(APPID, config.getAppId());
