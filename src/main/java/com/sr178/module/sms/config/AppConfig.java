@@ -29,6 +29,8 @@ public class AppConfig {
 	 * algorithm.It also the default value.
 	 * */
 	protected String signType = null;
+	
+	protected boolean isOpen = false;
 	/**
 	 * Three kind of value of {@link #signType}
 	 * */
@@ -67,6 +69,15 @@ public class AppConfig {
 
 	public void setSignType(String signType) {
 		this.signType = signType;
+	}
+	
+
+	public boolean isOpen() {
+		return isOpen;
+	}
+
+	public void setOpen(boolean isOpen) {
+		this.isOpen = isOpen;
 	}
 
 	/**

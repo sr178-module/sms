@@ -81,6 +81,7 @@ public class ConfigLoader {
 			messageConfig.setAppId(pros.getProperty(MessageConfig.APP_ID));
 			messageConfig.setAppKey(pros.getProperty(MessageConfig.APP_KEY));
 			messageConfig.setSignType(pros.getProperty(MessageConfig.APP_SIGNTYPE));
+			messageConfig.setOpen(pros.getProperty(MessageConfig.isOpen).equals("true")?true:false);
 		}
 		return messageConfig;
 	}
