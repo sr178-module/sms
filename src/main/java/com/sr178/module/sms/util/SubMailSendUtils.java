@@ -11,7 +11,7 @@ import com.sr178.module.sms.lib.MESSAGEXsend;
 public class SubMailSendUtils {
 	
 	
-	public static void sendMessage(String to,String projectCode,Map<String,String> param){
+	public static boolean sendMessage(String to,String projectCode,Map<String,String> param){
 		AppConfig config = ConfigLoader.load(ConfigLoader.ConfigType.Message);
 		if(config.isOpen()){
 			MESSAGEXsend submail = new MESSAGEXsend(config);
@@ -20,9 +20,10 @@ public class SubMailSendUtils {
 			for(Entry<String,String> entity:param.entrySet()){
 				submail.addVar(entity.getKey(),entity.getValue());
 			}
-			submail.xsend();
+			return submail.xsend();
 		}else{
 			System.out.println("测试阶段，不真正发送验证码:code="+param.get("code"));
+			return true;
 		}
 	}
 	
