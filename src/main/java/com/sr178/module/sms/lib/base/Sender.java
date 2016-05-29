@@ -145,9 +145,13 @@ public class Sender implements ISender {
 			}
 			closeableHttpClient.close();
 		} catch (ClientProtocolException e) {
+			httppost.abort();
 			e.printStackTrace();
 		} catch (IOException e) {
+			httppost.abort();
 			e.printStackTrace();
+		}finally {
+			httppost.abort();
 		}
 		return false;
 	}
