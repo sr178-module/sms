@@ -87,11 +87,14 @@ public class Sender implements ISender {
 			}
 			closeableHttpClient.close();
 		} catch (ClientProtocolException e) {
+			httpget.abort();
 			e.printStackTrace();
 		} catch (IOException e) {
+			httpget.abort();
 			e.printStackTrace();
+		}finally {
+			httpget.abort();
 		}
-
 		return null;
 	}
 
