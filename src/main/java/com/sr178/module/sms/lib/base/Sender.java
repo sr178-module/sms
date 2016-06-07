@@ -170,11 +170,12 @@ public class Sender implements ISender {
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 		builder.addTextBody(APPID, config.getAppId());
 //		builder.setCharset(Charset.);
-		builder.addTextBody(TIMESTAMP, this.getTimestamp());
+		String timeStamp = "111";//this.getTimestamp();
+		builder.addTextBody(TIMESTAMP,timeStamp);
 		builder.addTextBody(SIGN_TYPE, config.getSignType());
 		// set the properties below for signature
 		data.put(APPID, config.getAppId());
-		data.put(TIMESTAMP, this.getTimestamp());
+		data.put(TIMESTAMP, timeStamp);
 		data.put(SIGN_TYPE, config.getSignType());
 		ContentType contentType = ContentType.create(HTTP.PLAIN_TEXT_TYPE, HTTP.UTF_8); 
 		builder.addTextBody(SIGNATURE,
