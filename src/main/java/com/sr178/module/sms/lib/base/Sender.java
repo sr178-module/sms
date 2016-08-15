@@ -191,4 +191,35 @@ public class Sender implements ISender {
 		}
 		return builder.build();
 	}
+
+	public String requestForDetailsResult(String url,Map<String, Object> data) {
+		HttpPost httppost = new HttpPost(url);
+		httppost.addHeader("charset", "UTF-8");
+		httppost.setEntity(build(data));
+		try {
+			HttpResponse response = closeableHttpClient.execute(httppost);
+			HttpEntity httpEntity = response.getEntity();
+			if (httpEntity != null) {
+				String jsonStr = EntityUtils.toString(httpEntity, "UTF-8");
+				System.out.println(jsonStr);
+				return jsonStr;
+			}
+			closeableHttpClient.close();
+		} catch (ClientProtocolException e) {
+			httppost.abort();
+			e.printStackTrace();
+		} catch (IOException e) {
+			httppost.abort();
+			e.printStackTrace();
+		}finally {
+			httppost.abort();
+		}
+		return null;
+	}
+
+	@Override
+	public String xsendForResult(Map<String, Object> data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -57,4 +57,9 @@ public class MESSAGEXsend extends SenderWapper {
 	public boolean xsend(){
 		return getSender().xsend(requestData);
 	}
+	public String xsendForResult(){
+		return getSender().xsendForResult(requestData);
+	}
+	
+	
 }

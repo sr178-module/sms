@@ -33,5 +33,6 @@ public interface ISender {
 	public boolean subscribe(Map<String, Object> data);
 	
 	public boolean unsubscribe(Map<String, Object> data);
-
+	
+	public String xsendForResult(Map<String, Object> data);
 }

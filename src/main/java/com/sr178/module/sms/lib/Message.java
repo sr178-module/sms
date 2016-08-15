@@ -51,6 +51,10 @@ public class Message extends Sender {
 	}
 
 	@Override
+	public String xsendForResult(Map<String, Object> data) {
+		return requestForDetailsResult(API_XSEND, data);
+	}
+	@Override
 	public boolean subscribe(Map<String, Object> data) {
 		// TODO Auto-generated method stub
 		return request(API_SUBSCRIBE, data);
